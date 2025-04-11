@@ -17,6 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"> -->
 
     <!-- Google Tag Manager -->
     <script>
@@ -37,6 +38,115 @@
     </script>
     <!-- End Google Tag Manager -->
 
+    <!-- <style>
+        .basreng-header {
+            text-align: center;
+            margin: 30px 0;
+            color: white;
+            animation: fadeIn 1s ease-in-out;
+            font-family: 'Permanent Marker', cursive;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+        }
+        
+        .basreng-header h1 {
+            font-size: 3.5rem;
+            font-weight: 400; /* Permanent Marker doesn't use font-weight */
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            color: #FFD700; /* Gold color */
+            text-shadow:
+                2px 2px 0 #000,
+                4px 4px 0 rgba(0,0,0,0.2);
+        }
+        
+        .basreng-header p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-top: -10px;
+            color: #FFFFFF;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style> -->
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fontdiner+Swanky&display=swap');
+
+        .basreng-header {
+            text-align: center;
+            color: #ff6b00;
+            border-radius: 15px;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .basreng-header h1 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 4rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0 #000,
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            letter-spacing: 2px;
+            color: #ff8c00;
+        }
+
+        .basreng-header p {
+            font-family: 'Fontdiner Swanky', cursive;
+            font-size: 1.8rem;
+            margin-top: -10px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px #ff6b00, 0 0 20px #ff8c00;
+            }
+
+            to {
+                box-shadow: 0 0 15px #ff4500, 0 0 30px #ffa500;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .basreng-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .basreng-header p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
     <style>
         * {
             margin: 0;
@@ -50,7 +160,7 @@
             background-position: center;
             /* display: grid
 ; */
-            height: 100vh;
+            min-height: 100vh;
             flex-direction: column;
             opacity: 0;
             animation: fadeIn 1s forwards;
@@ -79,6 +189,94 @@
             /* Border halus */
         }
 
+        .products-container {
+            background: rgb(75 72 64 / 55%);
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transform: scale(0.8);
+            opacity: 0;
+            animation: zoomIn 0.5s forwards 1s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .product-title {
+            color: white;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 0 #000,
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+        letter-spacing: 2px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .product-image {
+            height: 180px; /* Fixed height for consistency */
+            object-fit: cover; /* This makes the image cover the space */
+            object-position: center; /* Centers the image */
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .product-price {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .buy-btn {
+            background: linear-gradient(2deg, #1a1b1c, #636464);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .buy-btn:hover {
+            background: linear-gradient(2deg, #636464, #1a1b1c);
+        }
+
         .profile img {
             width: 80px;
             height: 80px;
@@ -89,6 +287,7 @@
         .profile h2 {
             font-size: 1.2em;
             margin-bottom: 10px;
+            color: white;
         }
 
         .links a {
@@ -232,13 +431,94 @@
     <div class="container">
         <div class="profile">
             <img src="images/logo.jpeg" alt="Profile Picture">
-            <h2 style="color: white">KATUANGAN</h2>
+            <h2>KATUANGAN</h2>
         </div>
         <div class="links">
             <a href="https://shopee.co.id/katuanganid" target="_blank">Shopee</a>
             <a href="https://vt.tiktok.com/ZSr5TDRLK/?page=Mall " target="_blank">Toko Tiktok</a>
             <a href="https://www.tiktok.com/@katuangan?_t=ZS-8vPMoLjdNwX&_r=1 " target="_blank">Tiktok</a>
             <a href="https://wa.me/6283142109704" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- New Products Container -->
+
+    <div class="products-container">
+        <!-- Header Basreng -->
+        <div class="basreng-header">
+            <h1>BASRENG</h1>
+        </div>
+        <!-- Kategori Bundling Paket 1kg -->
+        <h2 class="product-title">Paket 1kg</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="images/katuangan/1kg ori.jpeg" alt="Produk 1kg 1"
+                    class="product-image">
+                <div class="product-name">Original Daun Jeruk</div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="images/katuangan/pedas 1kg.jpeg" alt="Produk 1kg 2"
+                    class="product-image">
+                <div class="product-name">Pedas Daun Jeruk</div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="images/katuangan/balado.jpeg" alt="Produk 1kg 2"
+                    class="product-image">
+                <div class="product-name">Balado</div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="images/katuangan/jagung.jpeg" alt="Produk 1kg 2"
+                    class="product-image">
+                <div class="product-name">Jagung Manis</div>
+            </div>
+        </div>
+        <!-- Paket 1kg -->
+        <h2 class="product-title">Paket Bundling 1kg</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="images/katuangan/ori perdas.jpeg" alt="Produk 1kg 1"
+                    class="product-image">
+                <div class="product-name">Paket 1kg A</div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="images/katuangan/ori balado.jpeg" alt="Produk 1kg 2"
+                    class="product-image">
+                <div class="product-name">Paket 1kg B</div>
+            </div>
+            <div class="product-card">
+                <img src="images/katuangan/ori agung.jpeg" alt="Produk 1kg 1"
+                    class="product-image">
+                <div class="product-name">Paket 1kg A</div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="images/katuangan/jagung pedas.jpeg" alt="Produk 1kg 2"
+                    class="product-image">
+                <div class="product-name">Paket 1kg B</div>
+            </div>
+            <div class="product-card">
+                <img src="images/katuangan/jagung balado.jpeg" alt="Produk 1kg 1"
+                    class="product-image">
+                <div class="product-name">Paket 1kg A</div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="images/katuangan/balado pedas.jpeg" alt="Produk 1kg 2"
+                    class="product-image">
+                <div class="product-name">Paket 1kg B</div>
+            </div>
         </div>
     </div>
 
@@ -255,15 +535,12 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="images/coba.png" class="d-block w-100" alt="katuangan">
-
             </div>
             <div class="carousel-item">
                 <img src="images/coba.png" class="d-block w-100" alt="katuangan">
-
             </div>
             <div class="carousel-item">
                 <img src="images/coba.png" class="d-block w-100" alt="katuangan">
-
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
